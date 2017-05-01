@@ -99,4 +99,10 @@ describe('table-view', () => {
     });
   });
 
+  describe('table footer', () => {
+    it('sums numbers from the columns above it', () => {
+       
+    });
+  });
+
 });
