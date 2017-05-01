@@ -41,16 +41,18 @@ const createEl = function(tagName) {
 const createTR = createEl('TR');
 const createTH = createEl('TH');
 const createTD = createEl('TD');
+const createTF = createEl('TF');
 
 module.exports = {
 	createTR: createTR,
 	createTH: createTH,
 	createTD: createTD,
+	createTF: createTF,
   removeChildren: removeChildren
 };
 },{}],4:[function(require,module,exports){
 class TableModel {
-  constructor(numCols=10, numRows=20) {
+  constructor(numCols=10, numRows=21) {
     this.numCols = numCols;
     this.numRows = numRows;
     this.data = {};
@@ -72,7 +74,7 @@ class TableModel {
 module.exports = TableModel;
 },{}],5:[function(require,module,exports){
 const { getLetterRange } = require('./array-util');
-const { removeChildren, createTR, createTH, createTD } = require('./dom-util');
+const { removeChildren, createTR, createTH, createTD, createTF } = require('./dom-util');
 
 class TableView {
   constructor(model) {
@@ -89,6 +91,7 @@ class TableView {
   initDomReferences() {
   	this.headerRowEl = document.querySelector('THEAD TR');
   	this.sheetBodyEl = document.querySelector('TBODY');
+    this.footerRowEl = document.querySelector('TFOOT');
   	this.formulaBarEl = document.querySelector('#formula-bar');
   }
 

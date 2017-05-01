@@ -1,5 +1,5 @@
 const { getLetterRange } = require('./array-util');
-const { removeChildren, createTR, createTH, createTD } = require('./dom-util');
+const { removeChildren, createTR, createTH, createTD, createTF } = require('./dom-util');
 
 class TableView {
   constructor(model) {
@@ -16,6 +16,7 @@ class TableView {
   initDomReferences() {
   	this.headerRowEl = document.querySelector('THEAD TR');
   	this.sheetBodyEl = document.querySelector('TBODY');
+    this.footerRowEl = document.querySelector('TFOOT');
   	this.formulaBarEl = document.querySelector('#formula-bar');
   }
 
