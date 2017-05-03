@@ -101,7 +101,25 @@ describe('table-view', () => {
 
   describe('table footer', () => {
     it('sums numbers from the columns above it', () => {
-       
+      const model = new TableModel(3, 3);
+      const view = new TableView(model);
+      model.setValue({col: 0, row: 1}, '3');
+      model.setValue({col: 0, row: 2}, '4');
+      view.init();
+
+      let tds = document.querySelectorAll('TFOOT TD');
+      expect(tds[0].textContent).toBe('7');
+    });
+
+    it('sums negative numbers from the columns above it', () => {
+      const model = new TableModel(3, 3);
+      const view = new TableView(model);
+      model.setValue({col: 0, row: 1}, '-3');
+      model.setValue({col: 0, row: 2}, '-4');
+      view.init();
+
+      let tds = document.querySelectorAll('TFOOT TD');
+      expect(tds[0].textContent).toBe('-7');
     });
   });
 
